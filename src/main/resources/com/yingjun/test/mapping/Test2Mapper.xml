@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingjun.test.dao.Test2Mapper" >
+  <resultMap id="BaseResultMap" type="com.yingjun.test.model.Test2" >
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="AGE" property="age" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.yingjun.test.model.Test2" >
+    insert into TEST2 (NAME, AGE)
+    values (#{name,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yingjun.test.model.Test2" >
+    insert into TEST2
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="age != null" >
+        AGE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="age != null" >
+        #{age,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="select" resultMap="BaseResultMap">
+    select NAME ,age from TEST2
+  </select>
+</mapper>

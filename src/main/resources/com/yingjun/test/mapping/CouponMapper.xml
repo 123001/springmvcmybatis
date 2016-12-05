@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yingjun.test.dao.CouponMapper" >
+  <resultMap id="BaseResultMap" type="com.yingjun.test.model.Coupon" >
+    <result column="COUPON_ID" property="couponId" jdbcType="VARCHAR" />
+    <result column="COUPON_NAME" property="couponName" jdbcType="VARCHAR" />
+    <result column="DEPART_ID" property="departId" jdbcType="VARCHAR" />
+    <result column="USER_RANGE" property="userRange" jdbcType="VARCHAR" />
+    <result column="COUPON_TYPE" property="couponType" jdbcType="VARCHAR" />
+    <result column="GIVE_TYPE" property="giveType" jdbcType="VARCHAR" />
+    <result column="START_TIME" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="END_TIME" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="EXPR_DAY" property="exprDay" jdbcType="DECIMAL" />
+    <result column="RSRV_STR1" property="rsrvStr1" jdbcType="VARCHAR" />
+    <result column="RSRV_STR2" property="rsrvStr2" jdbcType="VARCHAR" />
+    <result column="RSRV_STR3" property="rsrvStr3" jdbcType="VARCHAR" />
+    <result column="RSRV_STR4" property="rsrvStr4" jdbcType="VARCHAR" />
+    <result column="MINIMUM_FEE" property="minimumFee" jdbcType="DECIMAL" />
+  </resultMap>
+  <insert id="insert" parameterType="com.yingjun.test.model.Coupon" >
+    insert into TD_COUPON (COUPON_ID, COUPON_NAME, DEPART_ID, 
+      USER_RANGE, COUPON_TYPE, GIVE_TYPE, 
+      START_TIME, END_TIME, EXPR_DAY, 
+      RSRV_STR1, RSRV_STR2, RSRV_STR3, 
+      RSRV_STR4, MINIMUM_FEE)
+    values (#{couponId,jdbcType=VARCHAR}, #{couponName,jdbcType=VARCHAR}, #{departId,jdbcType=VARCHAR}, 
+      #{userRange,jdbcType=VARCHAR}, #{couponType,jdbcType=VARCHAR}, #{giveType,jdbcType=VARCHAR}, 
+      #{startTime,jdbcType=TIMESTAMP}, #{endTime,jdbcType=TIMESTAMP}, #{exprDay,jdbcType=DECIMAL}, 
+      #{rsrvStr1,jdbcType=VARCHAR}, #{rsrvStr2,jdbcType=VARCHAR}, #{rsrvStr3,jdbcType=VARCHAR}, 
+      #{rsrvStr4,jdbcType=VARCHAR}, #{minimumFee,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yingjun.test.model.Coupon" >
+    insert into TD_COUPON
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="couponId != null" >
+        COUPON_ID,
+      </if>
+      <if test="couponName != null" >
+        COUPON_NAME,
+      </if>
+      <if test="departId != null" >
+        DEPART_ID,
+      </if>
+      <if test="userRange != null" >
+        USER_RANGE,
+      </if>
+      <if test="couponType != null" >
+        COUPON_TYPE,
+      </if>
+      <if test="giveType != null" >
+        GIVE_TYPE,
+      </if>
+      <if test="startTime != null" >
+        START_TIME,
+      </if>
+      <if test="endTime != null" >
+        END_TIME,
+      </if>
+      <if test="exprDay != null" >
+        EXPR_DAY,
+      </if>
+      <if test="rsrvStr1 != null" >
+        RSRV_STR1,
+      </if>
+      <if test="rsrvStr2 != null" >
+        RSRV_STR2,
+      </if>
+      <if test="rsrvStr3 != null" >
+        RSRV_STR3,
+      </if>
+      <if test="rsrvStr4 != null" >
+        RSRV_STR4,
+      </if>
+      <if test="minimumFee != null" >
+        MINIMUM_FEE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="couponId != null" >
+        #{couponId,jdbcType=VARCHAR},
+      </if>
+      <if test="couponName != null" >
+        #{couponName,jdbcType=VARCHAR},
+      </if>
+      <if test="departId != null" >
+        #{departId,jdbcType=VARCHAR},
+      </if>
+      <if test="userRange != null" >
+        #{userRange,jdbcType=VARCHAR},
+      </if>
+      <if test="couponType != null" >
+        #{couponType,jdbcType=VARCHAR},
+      </if>
+      <if test="giveType != null" >
+        #{giveType,jdbcType=VARCHAR},
+      </if>
+      <if test="startTime != null" >
+        #{startTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="exprDay != null" >
+        #{exprDay,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvStr1 != null" >
+        #{rsrvStr1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr2 != null" >
+        #{rsrvStr2,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr3 != null" >
+        #{rsrvStr3,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr4 != null" >
+        #{rsrvStr4,jdbcType=VARCHAR},
+      </if>
+      <if test="minimumFee != null" >
+        #{minimumFee,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>
